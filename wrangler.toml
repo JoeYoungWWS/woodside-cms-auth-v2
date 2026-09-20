@@ -8,7 +8,12 @@ main = "src/index.ts"                 # entry point for the worker
 # Dashboard. It also specifies the first element of the default URL that
 # will reach your worker.
 name = "woodside-cms-auth-v2"
+[observability]
+enabled = true
 
+[observability.logs]
+enabled = true
+invocation_logs = true
 # optional: uncomment and alter the following lines if using a custom domain.
 #
 # route = { pattern = "decap.mydomain.com", zone_name = "mydomain.com", custom_domain = true }
