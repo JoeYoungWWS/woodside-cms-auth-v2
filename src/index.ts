@@ -87,6 +87,16 @@ const handleCallback = async (url: URL, env: Env) => {
 		code,
 		redirect_uri: `https://${url.hostname}/callback?provider=github`,
 	});
+
+	const repoCheck = await fetch('https://api.github.com/repos/JoeYoungWWS/woodside-website', {
+	headers: {
+		Authorization: `Bearer ${accessToken}`,
+		Accept: 'application/vnd.github+json',
+		'User-Agent': 'Woodside-CMS-Auth',
+	},
+});
+
+console.log(`GitHub repository check status: ${repoCheck.status}`);
 	return callbackScriptResponse('success', accessToken);
 };
 
